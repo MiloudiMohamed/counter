@@ -1,5 +1,10 @@
 <template>
   <div id="app">
+    <div>
+      <a class="fork" target="_blank" href="https://github.com/AdamKeen/counter">
+        <img src="@/assets/images/fork.png" alt="">
+      </a>
+    </div>
     <div id="nav">
       <router-link to="/">Countdown</router-link> |
       <router-link to="/stopwatch">Stopwatch</router-link>
@@ -23,4 +28,11 @@
   top: 20px;
   padding: 30px;
 }
+
+.fork {
+  position: fixed;
+  top: 0;
+  right: 0;
+}
+
 </style>

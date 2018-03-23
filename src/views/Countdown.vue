@@ -9,7 +9,7 @@
 
         <div class="form-group">
           <div class="form-group">
-            <input type="number" class="form-control" placeholder="per seconds" v-model="seconds">
+            <input type="number" class="form-control" placeholder="per seconds" v-model="seconds" min="0">
           </div>
           <button class="btn btn-primary mr-4" @click="countdown">Start counting</button>
           <button class="btn btn-warning" @click="reset">Reset</button>
@@ -49,9 +49,11 @@ export default {
 
     methods: {
       countdown () {
-        if (this.seconds === null || this.seconds === 0) {
+        if (this.seconds === null || this.seconds <= 0) {
+            this.seconds = 0
           return
         }
+
         this.remainingSeconds = this.seconds
         this.interval = setInterval(() =>  {
           if (this.remainingSeconds === 0) {

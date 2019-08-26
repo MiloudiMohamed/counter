@@ -3,9 +3,13 @@
     <div class="container">
       <div class="d-flex justify-content-center align-items-center flex-column">
 
-        <Timer :remainingSeconds="remainingSeconds"
+        <!-- <Timer :remainingSeconds="remainingSeconds"
                     :seconds="seconds"
                     :progressValue="progressValue"/>
+ -->
+        <timer-svg :remainingSeconds="remainingSeconds"
+                    :seconds="seconds"
+                    :progressValue="progressValue" />
 
         <div class="form-group">
           <div class="form-group">
@@ -26,10 +30,12 @@
 <script>
 // @ is an alias to /src
 import Timer from '@/components/Timer.vue'
+import TimerSvg from '@/components/TimerSvg.vue'
 
 export default {
     components: {
-        Timer
+        Timer,
+        TimerSvg
     },
 
     data () {
@@ -43,7 +49,7 @@ export default {
     },
     computed: {
         percentage() {
-          return Math.floor((180 * (this.seconds - this.remainingSeconds)) / this.seconds)
+          return Math.floor((100 * (this.seconds - this.remainingSeconds)) / this.seconds)
         },
     },
 
